@@ -1,0 +1,11 @@
+name: pull-request-workflow
+on: pull_request
+
+jobs:
+    my-pull-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: pull_step_1
+              run: echo hello pull request
+            - name: pull_step_2
+              run: echo step 2
