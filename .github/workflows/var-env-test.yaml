@@ -1,0 +1,9 @@
+name: var-env-flow
+on: push
+
+jobs:
+    get-var-env:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get var
+              run: echo ${{vars.LEVEL}}
