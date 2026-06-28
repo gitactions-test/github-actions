@@ -8,7 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'push'
         steps:
-            - name: push step
+            - name: push step 
               run: echo "push step 1"
     
     dispatch-job:
@@ -17,3 +17,13 @@ jobs:
         steps:
             - name: dispatch step
               run: echo "dispatch step 1"
+    
+    job-3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: push step
+              if: github.event_name == 'push'
+              run: echo "PUSH STEP"
+            - name:
+              if: github.event_name != 'push'
+              run: echo "NOT PUSH STEP"
