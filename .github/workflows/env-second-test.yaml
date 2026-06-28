@@ -1,0 +1,11 @@
+name: environment-test-flow
+on: push
+
+jobs:
+    get-env-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get env
+              run: |
+               echo ${{vars.LEVEL}}
+               echo ${{secrets.KEY}}
