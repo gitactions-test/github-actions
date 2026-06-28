@@ -1,0 +1,41 @@
+name: env-flow
+on: push
+
+env:
+    level: workflow
+
+jobs:
+    test-job-1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: workflow env
+              run: |
+                echo "LEVEL ${{env.level}}"
+    
+    test-job-2:
+        runs-on: ubuntu-latest
+        env:
+            level: job
+        steps:
+            - name: job env
+              run: |
+                echo "LEVEL ${{env.level}}"
+    
+    test-job-3:
+        runs-on: ubuntu-latest
+        env:
+            level: job
+        steps:
+            - name: step env
+              run: |
+                echo "LEVEL ${{env.level}}"
+              env:
+                level: step
+
+    get-env-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: create env
+              run: echo "level=job" >> $GITHUB_ENV
+            - name: check env
+              run: echo "LEVEL ${{env.level}}"
