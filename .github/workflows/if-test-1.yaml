@@ -1,0 +1,19 @@
+name: if-condition-flow
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    push-job:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push'
+        steps:
+            - name: push step
+              run: echo "push step 1"
+    
+    dispatch-job:
+        runs-on: ubuntu-latest
+        if: github.event_name != 'push'
+        steps:
+            - name: dispatch step
+              run: echo "dispatch step 1"
