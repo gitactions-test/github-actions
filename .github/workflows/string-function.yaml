@@ -1,0 +1,26 @@
+name: string-function
+on: push
+
+jobs:
+    string-function:
+        runs-on: ubuntu-latest
+        steps:
+            - name: startsWith step1
+              if: startsWith('honey bread', 'hon')
+              run: echo "honey bread"
+            - name: startsWidth step 2
+              if: startsWith('honey bread', 'yel')
+              run: echo "starts with step 2"
+            - name: endsWith step 1
+              if: endsWith('honey bread', 'ead')
+              run: echo "ends with step 1"
+            - name: end with step 2
+              if: endsWith('honey bread', 'br')
+              run: echo "ends with step 2"
+            - name: contains step 1
+              #아래의 첫 번째 매개변수는 배열임, 여기서 배열은 문자열 내에서 콤마로 구분
+              if: contains('honey, bread', 'hon')
+              run: echo "contains step 1"
+            - name: contains step 2
+              if: contains('honey bread', 're')
+              run: echo "contains step 2"
