@@ -20,6 +20,7 @@ jobs:
                 for keyword in keywords; do
                   if [[ "${{github.event.issue.title}}" =~ "$keyword" ]]; then
                     echo level=$keyword >> $GITHUB_OUTPUT
+                    echo $keyword
                   fi
                 done
             - name: get output
